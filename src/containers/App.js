@@ -1,11 +1,12 @@
 import React from 'react'
 import '../assets/styles/App.scss'
-import Participant from '../components/Participant'
+import Layout from '../components/Layout'
+import ParticipantNew from '../containers/ParticipantNew'
 
 export default function App() {
     return (
-        <div className='App'>
-          <Participant />
-        </div>
+        <Layout>
+          <ParticipantNew />
+        </Layout>
     )
 }
