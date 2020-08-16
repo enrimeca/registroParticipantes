@@ -1,4 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
 module.exports = {
   output: {
     filename: 'app.bundle.js',
@@ -25,7 +27,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|gif|jpg)$/,
+        test: /\.(png|gif|jpg|svg)$/,
         use: [
           {
             loader: 'file-loader',
