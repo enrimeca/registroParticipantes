@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 
-import '../assets/styles/containers/ParticipantNew.css'
-import Participant from '../components/Participant'
 import header from '../assets/images/badge-header.svg'
+import '../assets/styles/containers/ParticipantNew.css'
+
+import Participant from '../components/Participant'
+import ParticipantForm from '../components/ParticipantForm'
 
 export default class ParticipantNew extends Component {
   render() {
@@ -13,11 +15,13 @@ export default class ParticipantNew extends Component {
         </div>
 
         <div className='container'>
-          <div  className='row'>
-            <div className='col'>
+          <div  className='row'>          
+            <div className='col-6'>
+              <ParticipantForm />
+            </div>
+            <div className='col-6'>
               <Participant />
             </div>
-
           </div>
 
         </div>
