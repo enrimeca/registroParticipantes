@@ -7,7 +7,13 @@ import Participant from '../components/Participant'
 import ParticipantForm from '../components/ParticipantForm'
 
 const ParticipantNew = () => {
-  const [formData, setformData] = useState({})
+  const [formData, setformData] = useState({
+    firstName : '',
+    lastName : '',    
+    email : '', 
+    jobTitle : '',    
+    gravatar : '',  
+  })
 
   const handleChange = e =>{
     setformData({
