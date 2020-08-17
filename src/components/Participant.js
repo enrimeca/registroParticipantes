@@ -14,17 +14,18 @@ export default class Participant extends Component {
         <div className="Participant__section-name">
           <img
             className="Participant__avatar"
+            // src={this.props.avatarUrl}
             src="https://www.gravatar.com/avatar/21594ed15d68ace3965642162f8d2e84?d=identicon"
             alt="Avatar"
           />
           <h1>
-            Richard <br /> Kaufman
+            {this.props.firstName} <br /> {this.props.lastName}
           </h1>
         </div>
 
         <div className="Participant__section-info">
-          <h3>Frontend Engineer</h3>
-          <div>@sparragus</div>
+          <h3>{this.props.jobTitle}</h3>
+          <div>{this.props.email}</div>
         </div>
 
         <div className="Participant__footer">#platziconf</div>
@@ -32,3 +33,4 @@ export default class Participant extends Component {
     )
   }
 }
+

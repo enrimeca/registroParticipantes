@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
 import header from '../assets/images/badge-header.svg'
 import '../assets/styles/containers/ParticipantNew.css'
@@ -6,8 +6,22 @@ import '../assets/styles/containers/ParticipantNew.css'
 import Participant from '../components/Participant'
 import ParticipantForm from '../components/ParticipantForm'
 
-export default class ParticipantNew extends Component {
-  render() {
+const ParticipantNew = () => {
+  const [formData, setformData] = useState({})
+
+  const handleChange = e =>{
+    setformData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const handleSubmit = e =>{
+    e.preventDefault();
+    console.log('Form ', formData)    
+  }
+
+
     return (
       <div>
         <div className='ParticipantNew__hero'>
@@ -16,16 +30,28 @@ export default class ParticipantNew extends Component {
 
         <div className='container'>
           <div  className='row'>          
-            <div className='col-6'>
-              <ParticipantForm />
+            <div className='col-md-6 col mb-5'>
+              <ParticipantForm
+                handleChange = {handleChange}
+                handleSubmit = {handleSubmit}
+                formData = {formData}
+               />
             </div>
-            <div className='col-6'>
-              <Participant />
+            <div className='col-md-6 col mb-5'>
+              <Participant
+                firstName = {formData.firstName}
+                lastName = {formData.lastName}
+                email = {formData.email}
+                jobTitle = {formData.jobTitle}
+                gravatar = {formData.gravatar}
+              />
             </div>
           </div>
 
         </div>
       </div>
-    )
-  }
+    );
+  
 }
+
+export default ParticipantNew
