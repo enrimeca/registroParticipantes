@@ -19,13 +19,13 @@ export default class Participant extends Component {
             alt="Avatar"
           />
           <h1>
-            {this.props.firstName} <br /> {this.props.lastName}
+            {this.props.formData.firstName} <br /> {this.props.formData.lastName}
           </h1>
         </div>
 
         <div className="Participant__section-info">
-          <h3>{this.props.jobTitle}</h3>
-          <div>{this.props.email}</div>
+          <h3>{this.props.formData.jobTitle}</h3>
+          <div>{this.props.formData.email}</div>
         </div>
 
         <div className="Participant__footer">#platziconf</div>

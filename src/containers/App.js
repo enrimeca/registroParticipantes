@@ -1,12 +1,20 @@
 import React from 'react'
 import '../assets/styles/App.scss'
+
+// import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
 import Layout from '../components/Layout'
-import ParticipantNew from '../containers/ParticipantNew'
+import Participants from '../containers/Participants'
+// import ParticipantNew from '../containers/ParticipantNew'
 
 export default function App() {
     return (
-        <Layout>
-          <ParticipantNew />
-        </Layout>
+      // <BrowserRouter>
+      //   <Switch>
+          <Layout>
+            <Participants />
+          </Layout>
+      // </Switch>        
+     // </BrowserRouter> 
     )
 }
