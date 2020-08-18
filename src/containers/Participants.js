@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 import '../assets/styles/containers/Participants.scss';
 import confLogo from '../assets/images/badge-header.svg';
@@ -44,7 +44,7 @@ class Participants extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <Fragment>
         <div className="Participants">
           <div className="Participants__hero">
             <div className="Participants__container">
@@ -59,14 +59,14 @@ class Participants extends Component {
 
         <div className="Participants__container">
           <div className="Participants__buttons">
-            {/* <Link to="/participants/new" className="btn btn-primary">
-              New Badge
-            </Link> */}
+            <Link to="/participantes/new" className="btn btn-primary">
+              Registrar
+            </Link>
           </div>
 
           <ParticipantsList participants={this.state.data} />
         </div>
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

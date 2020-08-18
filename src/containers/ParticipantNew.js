@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 
 import header from '../assets/images/badge-header.svg'
 import '../assets/styles/containers/ParticipantNew.scss'
@@ -29,7 +29,7 @@ const ParticipantNew = () => {
 
 
     return (
-      <div>
+      <Fragment>
         <div className='ParticipantNew__hero'>
           <img className="img-fluid" src={ header } alt='Logo' />
         </div>
@@ -56,7 +56,7 @@ const ParticipantNew = () => {
           </div>
 
         </div>
-      </div>
+      </Fragment>
     );
   
 }
