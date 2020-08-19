@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, Component} from 'react';
 import { Link } from 'react-router-dom';
 
 import '../assets/styles/containers/Participants.scss';
@@ -7,58 +7,64 @@ import ParticipantsList from '../components/ParticipantsList';
 
 import api from '../api'
 
-const Participants = () => {
-  const [stateFetch, setstateFetch] = useState({
+class Participants extends Component {
+  state = {
     loading : true,
     error : null,    
     data : undefined
-  })
+  }
+  
+  componentDidMount() {
+    this.fetchData();
+  }
  
-  useEffect(() => {
-    fetchData()
-  },[])
+  fetchData = async () => {
+    this.setState({ loading: true, error: null });
 
-  async function fetchData (){
-    // setstateFetch(true,null,null)
     try {
       const data = await api.participants.list();
-      // setstateFetch(false,null,data)
-      
+      this.setState({ loading: false, data: data });
     } catch (error) {
-      // setstateFetch(false,error,null)
+      this.setState({ loading: false, error: error });
     }
-  }
+  };
 
-  if(stateFetch.loading === true) {
-    return 'Loading...'
-  }
+  render(){
+
+      if(this.state.loading === true) {
+        return 'Loading...'
+      }
+
+      if (this.state.error) {
+        return `Error: ${this.state.error.message}`;
+      }
   
-  return (
-    <Fragment>
-      <div className="Participants">
-        <div className="Participants__hero">
-          <div className="Participants__container">
-            <img
-              className="Participants_conf-logo"
-              src={confLogo}
-              alt="Conf Logo"
-            />
+      return (
+        <Fragment>
+          <div className="Participants">
+            <div className="Participants__hero">
+              <div className="Participants__container">
+                <img
+                  className="Participants_conf-logo"
+                  src={confLogo}
+                  alt="Conf Logo"
+                />
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div className="Participants__container">
-        <div className="Participants__buttons">
-          <Link to="/participantes/new" className="btn btn-primary">
-            Registrar
-          </Link>
-        </div>
+          <div className="Participants__container">
+            <div className="Participants__buttons">
+              <Link to="/participantes/new" className="btn btn-primary">
+                Registrar
+              </Link>
+            </div>
 
-        {/* <ParticipantsList participants={[]} /> */}
-      </div>
-    </Fragment>
-  );
-  
+            <ParticipantsList participants={this.state.data} /> 
+          </div>
+        </Fragment>
+      );
+  }
 }
 
 export default Participants;
