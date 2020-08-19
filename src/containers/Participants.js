@@ -1,5 +1,6 @@
 import React, { Fragment, Component} from 'react';
 import { Link } from 'react-router-dom';
+import Loader from '../components/Loader';
 
 import '../assets/styles/containers/Participants.scss';
 import confLogo from '../assets/images/badge-header.svg';
@@ -20,7 +21,6 @@ class Participants extends Component {
  
   fetchData = async () => {
     this.setState({ loading: true, error: null });
-
     try {
       const data = await api.participants.list();
       this.setState({ loading: false, data: data });
@@ -32,7 +32,7 @@ class Participants extends Component {
   render(){
 
       if(this.state.loading === true) {
-        return 'Loading...'
+        return <Loader />
       }
 
       if (this.state.error) {

@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Lato', 'Helvetica Neue', sans-serif;
-  background-color: #F4F4F7;
+  background-color: #F1FAEE;
 }
 
 h1 {
@@ -30,20 +30,20 @@ a.link-unstyled:hover {
 
 .btn.btn-primary {
   color: #fff;
-  background-color: #7DCD40;
-  border-color: #7DCD40;
+  background-color: #457B9D;
+  border-color: #457B9D;
 }
 
 .btn.btn-primary:not(:disabled):not(.disabled):hover {
   color: #fff;
-  background-color: #7DCD40;
-  border-color: #7DCD40;
+  background-color: #457B9D;
+  border-color: #457B9D;
 }
 
 .btn.btn-primary:not(:disabled):not(.disabled):active {
   color: #fff;
-  background-color: #7DCD40;
-  border-color: #7DCD40;
+  background-color: #457B9D;
+  border-color: #457B9D;
 }
 
 .btn.btn-primary:not(:disabled):not(.disabled):focus {
@@ -52,22 +52,32 @@ a.link-unstyled:hover {
 
 .btn.btn-danger {
   color: #fff;
-  background-color: #CD4040;
-  border-color: #CD4040;
+  background-color: #E63946;
+  border-color: #E63946;
 }
 
 .btn.btn-danger:not(:disabled):not(.disabled):hover {
   color: #fff;
-  background-color: #CD4040;
-  border-color: #CD4040;
+  background-color: #E63946;
+  border-color: #E63946;
 }
 
 .btn.btn-danger:not(:disabled):not(.disabled):active {
   color: #fff;
-  background-color: #CD4040;
-  border-color: #CD4040;
+  background-color: #E63946;
+  border-color: #E63946;
 }
 
 .btn.btn-danger:not(:disabled):not(.disabled):focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 64, 64, 0.5);
 }
+
+.navbar-custom{
+  background-color: #1D3557;
+}
+
+.navbar .nav-link{
+  color: #A8DADC;
+  font-weight: 400;
+}
+

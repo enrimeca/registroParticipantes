@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default class Navbar extends Component {
   render() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <nav className="navbar navbar-expand-md navbar-dark sticky-top navbar-custom">
           <div className="container">
 
             <img src={ logo } alt='logo' />
@@ -15,7 +15,7 @@ export default class Navbar extends Component {
 
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav ml-auto">
-                <li className="nav-item active">
+                <li className="nav-item">
                   <Link className="nav-link" to="/">Inicio </Link>
                 </li>
                 <li className="nav-item">
