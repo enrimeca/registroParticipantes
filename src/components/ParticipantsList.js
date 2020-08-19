@@ -29,7 +29,6 @@ class ParticipantsListItem extends Component {
 
 class ParticipantsList extends Component {
   render(){
-  console.log('estando en la lista :', this.props.participants)
 
     if(this.props.participants.length === 0){
       return(

@@ -23,8 +23,7 @@ const ParticipantNew = () => {
   }
 
   const handleSubmit = e =>{
-    e.preventDefault();
-    console.log('Form ', formData)    
+    e.preventDefault();   
   }
 
 
