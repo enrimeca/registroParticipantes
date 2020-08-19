@@ -1,12 +1,27 @@
 import React, { Component } from 'react'
 import '../assets/styles/components/ParticipantsList.scss'
+import { Link } from 'react-router-dom';
 
-class ParticipantsList extends Component {
-  render() {
+const ParticipantsList = ({stateFetch}) => {
+  
+  console.log(stateFetch)
+
+    // if(stateFetch.data.length === 0){
+    //   return(
+    //     <div>
+    //       <h3>No encontramos a nadie registrado</h3>
+    //       <Link className="btn btn-primary" to="/participantes/nuevo">
+
+    //       </Link>
+    //     </div>
+    //   )
+    // }
+
+
     return (
       <div className="ParticipantsList">
         <ul className="list-unstyled">
-          {this.props.participants.map(participant => {
+          {stateFetch.map(participant => {
             return (
               <li key={participant.id}>
                 <ParticipantsListItem participant={participant} />
@@ -15,8 +30,7 @@ class ParticipantsList extends Component {
           })}
         </ul>
       </div>
-    )
-  }
+    )  
 }
 
 class ParticipantsListItem extends Component {
@@ -25,17 +39,17 @@ class ParticipantsListItem extends Component {
       <div className="ParticipantsListItem">
         <img
           className="ParticipantsListItem__avatar"
-          src={this.props.participant.avatarUrl}
-          alt={`${this.props.participant.firstName} ${this.props.participant.lastName}`}
+          src={participant.avatarUrl}
+          alt={`${participant.firstName} ${participant.lastName}`}
         />
 
         <div>
           <strong>
-            {this.props.participant.firstName} {this.props.participant.lastName}
+            {participant.firstName} {participant.lastName}
           </strong>
-          <br />{this.props.participant.email}
+          <br />{participant.email}
           <br />
-          {this.props.participant.jobTitle}
+          {participant.jobTitle}
         </div>
       </div>
     );
