@@ -1,0 +1,25 @@
+.ParticipantEdit__hero {
+  width: 100%;
+  height: 250px;
+  
+  background: url('../../images/fondo.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 767px) {
+  .ParticipantEdit__hero {
+    width: 100%;
+    height: 150px;
+  }
+}
+  
+@media screen and (max-width: 479px) {
+  .ParticipantEdit__hero {
+    display: none;
+  }
+
+}

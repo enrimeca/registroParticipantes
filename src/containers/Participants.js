@@ -24,7 +24,6 @@ class Participants extends Component {
     this.setState({ loading: true, error: null });
     try {
       const data = await api.participants.list();
-      console.log('Participants.js data : ', data)
       this.setState({ loading: false, data: data });
     } catch (error) {
       this.setState({ loading: false, error: error });

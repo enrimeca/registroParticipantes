@@ -8,7 +8,6 @@ const ParticipantForm = ({handleChange, handleSubmit, formData, error}) => {
 
   return (
     <Fragment>
-        <h1>Nuevo Participante</h1>
         <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label>Nombres</label>

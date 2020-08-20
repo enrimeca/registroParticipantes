@@ -44,8 +44,10 @@ class ParticipantsList extends Component {
         <ul className="list-unstyled">
           {this.props.participants.map(participant => {
             return (              
-              <li key={participant._id}>{/* Puede ser id */}
-                <ParticipantsListItem participant={participant} />
+              <li key={participant._id}>
+                <Link className='text-reset text-decoration-none' to={`/participantes/${participant._id}/edit`}>
+                  <ParticipantsListItem participant={participant} />
+                </Link>
               </li>
             );
           })}

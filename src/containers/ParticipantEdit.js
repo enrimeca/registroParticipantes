@@ -1,14 +1,15 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 
-import '../assets/styles/containers/ParticipantNew.scss'
+import '../assets/styles/containers/ParticipantEdit.scss'
 
 import Participant from '../components/Participant'
 import ParticipantForm from '../components/ParticipantForm'
 import api from '../api';
 import Loader from '../components/Loader'
 
-const ParticipantNew = (props) => {
-  const [loading, setLoading] = useState(false)
+const ParticipantEdit = (props) => {
+
+  const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
   const [formData, setformData] = useState({
@@ -18,6 +19,34 @@ const ParticipantNew = (props) => {
     twitter: 'twitter',
     job : ''
   })
+
+  useEffect(() => {
+    
+    setLoading(true)
+    setError(null)
+
+    const fetchData = async e => {
+      try {
+        const data = await api.participants.read(props.match.params.participanteId)
+        
+        setLoading(false)
+        // setformData(data)
+        setformData({
+          ...formData,
+          name : data.name,
+          lastName : data.lastName,    
+          email : data.email, 
+          twitter :'twitter',
+          job : data.job
+        })
+      } catch (error) {
+        setLoading(false)
+        setError(error)
+      }
+    }
+
+    fetchData()
+  }, [])
 
   const handleChange = e =>{
     setformData({
@@ -32,11 +61,9 @@ const ParticipantNew = (props) => {
     setError(null)
 
     try {
-      await api.participants.create(formData);
+      await api.participants.update(props.match.params.participanteId,formData);
       setLoading(false)
-
       props.history.push('/participantes')
-
     } catch (error) {
       setLoading(false)
       setError(error)
@@ -49,12 +76,12 @@ const ParticipantNew = (props) => {
 
   return (
     <Fragment>
-      <div className='ParticipantNew__hero'></div>
+      <div className='ParticipantEdit__hero'></div>
 
       <div className='container'>
         <div  className='row mt-4'>          
           <div className='col-md mb-5'>
-            <h1>Nuevo Participante</h1>
+            <h1>Editar Participante</h1>
             <ParticipantForm
               handleChange = {handleChange}
               handleSubmit = {handleSubmit}
@@ -65,14 +92,18 @@ const ParticipantNew = (props) => {
           <div className='col-md mb-5'>
             <Participant
               formData={formData}
+              // firstName = {formData.firstName}
+              // lastName = {formData.lastName}
+              // email = {formData.email}
+              // jobTitle = {formData.jobTitle}
+              // gravatar = {formData.gravatar}
             />
           </div>
         </div>
 
       </div>
     </Fragment>
-  );
-  
+  );  
 }
 
-export default ParticipantNew
+export default ParticipantEdit
