@@ -4,7 +4,7 @@ import Loader from '../components/Loader';
 import Error from '../containers/Error';
 
 import '../assets/styles/containers/Participants.scss';
-import confLogo from '../assets/images/badge-header.svg';
+import logoPrincipal from '../assets/images/logoGral.jpg';
 import ParticipantsList from '../components/ParticipantsList';
 
 import api from '../api'
@@ -46,8 +46,8 @@ class Participants extends Component {
             <div className="Participants__hero">
               <div className="Participants__container">
                 <img
-                  className="Participants_conf-logo"
-                  src={confLogo}
+                  className="Participants_logo"
+                  src={logoPrincipal}
                   alt="Conf Logo"
                 />
               </div>

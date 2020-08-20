@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import logo from '..//assets/images/logo.svg'
+import logo from '..//assets/images/LogoNavbar.png'
 import { Link } from 'react-router-dom'
 
 export default class Navbar extends Component {
@@ -8,7 +8,7 @@ export default class Navbar extends Component {
         <nav className="navbar navbar-expand-md navbar-dark sticky-top navbar-custom">
           <div className="container">
 
-            <img src={ logo } alt='logo' />
+            <img src={ logo } className='navbar__logo' alt='logo' />
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>

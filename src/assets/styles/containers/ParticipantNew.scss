@@ -1,8 +1,15 @@
 .ParticipantNew__hero {
   width: 100%;
-  padding: 2rem 0;
-  background: url('../../images/stars.svg'), #1D3557;
-  background-repeat: repeat;
-  margin-bottom: 1rem;
+  height: 200px;
+  // padding: 2rem 0;
+  // background: url('../../images/fondo.jpg'), #1D3557;
+  // background-repeat: repeat;
+
+  margin-bottom: 1.5rem;
   color: #ffffff;
+
+  display: flex;
+  // justify-content: center;
+  // position: relative;
 }
+

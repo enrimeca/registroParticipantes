@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import '../assets/styles/components/Participant.scss'
 
-import confLogo from '../assets/images/badge-header.svg'
+import logo from '../assets/images/logo.png'
 
 export default class Participant extends Component {
   render() {
     return (
       <div className="Participant">
         <div className="Participant__header">
-          <img src={confLogo} alt="Logo de la conferencia" />
+          <img src={logo} alt="Piura Clases" />
         </div>
 
         <div className="Participant__section-name">
@@ -28,7 +28,7 @@ export default class Participant extends Component {
           <div>{this.props.formData.email}</div>
         </div>
 
-        <div className="Participant__footer">#platziconf</div>
+        <div className="Participant__footer">Aprendizaje Online</div>
       </div>
     )
   }

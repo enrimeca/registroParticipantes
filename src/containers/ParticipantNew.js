@@ -1,6 +1,7 @@
 import React, { useState, Fragment } from 'react'
 
-import header from '../assets/images/badge-header.svg'
+import fondoHeader from '../assets/images/fondo.jpg'
+import header from '../assets/images/logoGral.png'
 import '../assets/styles/containers/ParticipantNew.scss'
 
 import Participant from '../components/Participant'
@@ -30,7 +31,17 @@ const ParticipantNew = () => {
     return (
       <Fragment>
         <div className='ParticipantNew__hero'>
-          <img className="img-fluid" src={ header } alt='Logo' />
+          <img className="id-block w-100" src={ fondoHeader } alt='' />
+
+          <div class="overlay">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-md-6 offset-md-6 text-center text-md-right">
+                    <img className="img-fluid" src={ header } alt='Logo' />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className='container'>
