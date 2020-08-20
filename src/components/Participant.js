@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import '../assets/styles/components/Participant.scss'
 
 import logo from '../assets/images/logo.png'
+import Gravatar from './Gravatar';
+
 
 export default class Participant extends Component {
   render() {
@@ -12,12 +14,7 @@ export default class Participant extends Component {
         </div>
 
         <div className="Participant__section-name">
-          <img
-            className="Participant__avatar"
-            // src={this.props.avatarUrl}
-            src="https://www.gravatar.com/avatar/21594ed15d68ace3965642162f8d2e84?d=identicon"
-            alt="Avatar"
-          />
+          <Gravatar className="Participant__avatar" email={this.props.formData.email} />
           <h1>
             {this.props.formData.firstName} <br /> {this.props.formData.lastName}
           </h1>

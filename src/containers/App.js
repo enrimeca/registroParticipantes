@@ -6,6 +6,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 // import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import Layout from '../components/Layout'
+import Home from '../containers/Home'
 import Participants from '../containers/Participants'
 import ParticipantNew from '../containers/ParticipantNew'
 import NotFound from '../containers/NotFound'
@@ -15,6 +16,7 @@ function App() {
     <BrowserRouter>
       <Layout>
         <Switch> 
+          <Route exact path="/" component = { Home } />
           <Route exact path="/participantes" component = { Participants } />
           <Route exact path="/participantes/new" component = { ParticipantNew } /> 
           <Route component = {NotFound} />

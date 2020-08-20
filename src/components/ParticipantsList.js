@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
 import '../assets/styles/components/ParticipantsList.scss'
 import { Link } from 'react-router-dom';
-
+import Gravatar from '../components/Gravatar';
 
 class ParticipantsListItem extends Component {
   render() {
     return (
       <div className="ParticipantsListItem">
-        <img
+        <Gravatar
           className="ParticipantsListItem__avatar"
-          // src={participant.avatarUrl}
-          src="https://www.gravatar.com/avatar/21594ed15d68ace3965642162f8d2e84?d=identicon"
-          alt={`${this.props.participant.name} ${this.props.participant.lastName}`}
+          email={this.props.participant.email}
         />
 
         <div>

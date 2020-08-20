@@ -1,11 +1,12 @@
 import React, { useState, Fragment } from 'react'
 
 import fondoHeader from '../assets/images/fondo.jpg'
-import header from '../assets/images/logoGral.png'
+// import header from '../assets/images/logoGral.png'
 import '../assets/styles/containers/ParticipantNew.scss'
 
 import Participant from '../components/Participant'
 import ParticipantForm from '../components/ParticipantForm'
+import api from '../api';
 
 const ParticipantNew = () => {
   const [formData, setformData] = useState({
@@ -13,7 +14,7 @@ const ParticipantNew = () => {
     lastName : '',    
     email : '', 
     jobTitle : '',    
-    gravatar : '',  
+    gravatar : ''
   })
 
   const handleChange = e =>{
@@ -23,37 +24,35 @@ const ParticipantNew = () => {
     })
   }
 
-  const handleSubmit = e =>{
-    e.preventDefault();   
+  const handleSubmit = async e =>{
+    e.preventDefault();  
+    this.setState({ loading: true, error: null });
+
+    try {
+      await api.participants.create(this.state.form);
+      this.setState({ loading: false });
+    } catch (error) {
+      this.setState({ loading: false, error: error });
+    }
   }
 
 
     return (
       <Fragment>
         <div className='ParticipantNew__hero'>
-          <img className="id-block w-100" src={ fondoHeader } alt='' />
-
-          <div class="overlay">
-            <div class="container">
-              <div class="row align-items-center">
-                <div class="col-md-6 offset-md-6 text-center text-md-right">
-                    <img className="img-fluid" src={ header } alt='Logo' />
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* <img className="id-block w-100" src={ fondoHeader } alt='' /> */}
         </div>
 
         <div className='container'>
-          <div  className='row'>          
-            <div className='col-md-6 col mb-5'>
+          <div  className='row mt-4'>          
+            <div className='col-md mb-5'>
               <ParticipantForm
                 handleChange = {handleChange}
                 handleSubmit = {handleSubmit}
                 formData = {formData}
                />
             </div>
-            <div className='col-md-6 col mb-5'>
+            <div className='col-md mb-5'>
               <Participant
                 formData={formData}
                 // firstName = {formData.firstName}
