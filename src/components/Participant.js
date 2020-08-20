@@ -16,12 +16,12 @@ export default class Participant extends Component {
         <div className="Participant__section-name">
           <Gravatar className="Participant__avatar" email={this.props.formData.email} />
           <h1>
-            {this.props.formData.firstName} <br /> {this.props.formData.lastName}
+            {this.props.formData.name} <br /> {this.props.formData.lastName}
           </h1>
         </div>
 
         <div className="Participant__section-info">
-          <h3>{this.props.formData.jobTitle}</h3>
+          <h3>{this.props.formData.job}</h3>
           <div>{this.props.formData.email}</div>
         </div>
 

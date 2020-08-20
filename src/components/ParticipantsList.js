@@ -18,7 +18,7 @@ class ParticipantsListItem extends Component {
           </strong>
           <br />{this.props.participant.email}
           <br />
-          {this.props.participant.jobTitle}
+          {this.props.participant.job}
         </div>
       </div>
     );
@@ -33,7 +33,7 @@ class ParticipantsList extends Component {
         <div>
           <h3>No encontramos a nadie registrado</h3>
           <Link className="btn btn-primary" to="/participantes/nuevo">
-            asdfad
+            Registrar
           </Link>
         </div>
       )
@@ -43,8 +43,8 @@ class ParticipantsList extends Component {
       <div className="ParticipantsList">
         <ul className="list-unstyled">
           {this.props.participants.map(participant => {
-            return (
-              <li key={participant._id}>
+            return (              
+              <li key={participant._id}>{/* Puede ser id */}
                 <ParticipantsListItem participant={participant} />
               </li>
             );
