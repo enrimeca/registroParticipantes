@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react';
+import ReactDOM from 'react-dom'
+import $ from 'jquery';
 import { Link } from 'react-router-dom';
 
 import '../assets/styles/containers/ParticipantDetails.scss';
@@ -8,6 +10,8 @@ import Error from '../containers/Error';
 import Participant from '../components/Participant';
 import api from '../api';
 
+import Modal from '../components/Modal'
+
 class ParticipantDetails extends React.Component {
   state = {
     loading: true,
@@ -16,7 +20,12 @@ class ParticipantDetails extends React.Component {
   };
 
   componentDidMount() {
-    this.fetchData();
+    this.fetchData();    
+  }
+
+  componentWillUnmount(){   
+    $('body').removeClass('modal-open');   
+    $('.modal-backdrop').remove()
   }
 
   fetchData = async () => {
@@ -29,6 +38,19 @@ class ParticipantDetails extends React.Component {
       this.setState({ loading: false, error: error });
     }
   };
+
+  handleDeleteParticipant = async e =>{
+    this.setState({ loading: true, error: null });
+
+    try {
+      await api.participants.remove(this.props.match.params.participanteId);
+      this.setState({ loading: false });
+
+      this.props.history.push('/participantes');
+    } catch (error) {
+      this.setState({ loading: false, error: error });
+    }
+  }
 
   render() {
     if (this.state.loading) {
@@ -71,12 +93,18 @@ class ParticipantDetails extends React.Component {
            <div className="col-md-6 text-center">               
               <div>
                 <Link
-                  className="btn btn-primary m-3"
-                  to={`/participants/${participant.id}/edit`}
+                  className="btn btn-primary m-3" 
+                  to={`/participantes/${this.state.data._id}/edit`}
                 >
                   Editar
                 </Link>
-                <button className="btn btn-danger m-3">Eliminar</button>
+                <button className="btn btn-danger m-3"
+                data-toggle="modal" data-target="#exampleModal"
+                >Eliminar
+                </button>
+                <Modal 
+                  onDeleteParticipant={this.handleDeleteParticipant}
+                />
               </div>                
             </div> 
           </div>

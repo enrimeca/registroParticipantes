@@ -34,17 +34,17 @@ const api = {
         body: JSON.stringify(participant),
       });
     },
-    read(badgeId) {
-      return callApi(`/api/v1/${badgeId}`);
+    read(participantId) {
+      return callApi(`/api/v1/${participantId}`);
     },
-    update(badgeId, updates) {
-      return callApi(`/api/v1/${badgeId}`, {
+    update(participantId, updates) {
+      return callApi(`/api/v1/${participantId}`, {
         method: 'PUT',
         body: JSON.stringify(updates),
       });
     },
-    remove(badgeId) {
-      return callApi(`/api/v1/${badgeId}`, {
+    remove(participantId) {
+      return callApi(`/api/v1/${participantId}`, {
         method: 'DELETE',
       });
     },
