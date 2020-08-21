@@ -3,8 +3,6 @@ import '../assets/styles/components/Participant.scss'
 
 import logo from '../assets/images/logo.png'
 import Gravatar from './Gravatar';
-
-
 export default class Participant extends Component {
   render() {
     return (

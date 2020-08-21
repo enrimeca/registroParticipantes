@@ -3,8 +3,6 @@ import '../assets/styles/App.scss'
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-// import { BrowserRouter, Switch, Route } from 'react-router-dom'
-
 import Layout from '../components/Layout'
 import Home from '../containers/Home'
 import Participants from '../containers/Participants'

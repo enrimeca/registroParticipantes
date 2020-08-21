@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment, useState, useMemo } from 'react'
 import '../assets/styles/components/ParticipantsList.scss'
 import { Link } from 'react-router-dom';
 import Gravatar from '../components/Gravatar';
@@ -25,24 +25,62 @@ class ParticipantsListItem extends Component {
   }
 }
 
-class ParticipantsList extends Component {
-  render(){
+function useSearch(participants){
 
-    if(this.props.participants.length === 0){
-      return(
+  const [query, setQuery] = useState('')
+  const [ filteredParticipants, setfilteredParticipants ] = useState(participants)
+
+  useMemo(()=>{
+    const result = participants.filter(participant => {
+      return `${participant.name} ${participant.lastName}`.toLowerCase().includes(query.toLowerCase())
+    })
+    setfilteredParticipants(result)
+  },[participants,query])
+
+  return { query, setQuery, filteredParticipants }
+}
+
+const ParticipantsList = (props) => {
+  const participants = props.participants  
+ 
+  const { query,setQuery,filteredParticipants } = useSearch(participants)
+
+  if(filteredParticipants.length === 0){
+    return(
+      <Fragment>
+        <div className="form-group">
+          <label>Filtrar Participante :</label>
+          <input type='text' className='form-control' 
+            value={query}
+            onChange={(e)=>{
+              setQuery(e.target.value)
+            }}
+          />
+        </div>
         <div>
           <h3>No encontramos a nadie registrado</h3>
           <Link className="btn btn-primary" to="/participantes/nuevo">
             Registrar
           </Link>
         </div>
-      )
-    }
+      </Fragment>
+    )
+  }
 
     return (
       <div className="ParticipantsList">
+        <div className="form-group">
+          <label>Filtrar Participante :</label>
+          <input type='text' className='form-control' 
+            value={query}
+            onChange={(e)=>{
+              setQuery(e.target.value)
+            }}
+          />
+        </div>
+
         <ul className="list-unstyled">
-          {this.props.participants.map(participant => {
+          {filteredParticipants.map(participant => {
             return (              
               <li key={participant._id}>
                 <Link className='text-reset text-decoration-none' to={`/participantes/${participant._id}`}>
@@ -54,7 +92,7 @@ class ParticipantsList extends Component {
         </ul>
       </div>
     )  
-  }
+  
 }
 
 export default ParticipantsList

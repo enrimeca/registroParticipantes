@@ -1,32 +1,34 @@
 .Participants__hero {
-  width: 100%;
-  padding: 1rem 0;
-  // background: url('../../images/stars.svg'), #1D3557;
+  height: 100%;
   background-color: #1e3658;
   background-repeat: repeat;
-  margin-bottom: 1rem;
-}
-
-.Participants__hero>.Participants__container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
 }
 
-.Participants__container {
-  width: 100%;
-  max-width: 580px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.Participants_logo {
-  margin-bottom: 1rem;
-  height: 200px
+.Participants__container{
+  padding: 100px 0 100px 0;
 }
 
 .Participants__buttons {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+
+
+@media (max-width: 768px) { 
+  .Participants_logo {
+    width: 300px;
+  }
+}
+
+@media (max-width: 576px) { 
+  .Participants_logo {
+    width: 200px;
+  }
+  .Participants__container{
+    padding: 25px 0 50px 0;
+  }
 }

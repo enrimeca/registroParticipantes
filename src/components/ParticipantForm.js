@@ -1,4 +1,4 @@
-import React, { Fragment/*, useState */} from 'react';
+import React, { Fragment} from 'react';
 
 const ParticipantForm = ({handleChange, handleSubmit, formData, error}) => {
 
@@ -28,7 +28,7 @@ const ParticipantForm = ({handleChange, handleSubmit, formData, error}) => {
               <label>Profesión</label>
               <input className="form-control" onChange={handleChange} type="text" name="job" value={formData.job}></input>
             </div>
-            <button onClick={handleClick} className='btn btn-primary'>Registrar</button>
+            <button onClick={handleClick} className='btn btn-primary'>Guardar</button>
 
             {error && <p className='text-danger'>{error.message}</p>}
         </form>

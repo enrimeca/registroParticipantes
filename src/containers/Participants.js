@@ -42,7 +42,34 @@ class Participants extends Component {
   
       return (
         <Fragment>
-          <div className="Participants">
+          <div className="container-fluid">
+
+              <div className="row">
+                <div className="col col-md-6 colForm">
+                    <div className="Participants__buttons">
+                      <Link to="/participantes/new" className="btn btn-primary mt-3">
+                        Registrar
+                      </Link>
+                    </div>
+
+                    <ParticipantsList participants={this.state.data} /> 
+                </div>
+                <div className="col col-md-6">
+                  <div className="Participants__hero">
+                      <div className="Participants__container">
+                        <img
+                            className="Participants_logo"
+                            src={LogoPrincipal}
+                            alt="Conf Logo"
+                          />
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          
+
+          {/* <div className="Participants">
             <div className="Participants__hero">
               <div className="Participants__container">
                 <img
@@ -57,12 +84,12 @@ class Participants extends Component {
           <div className="Participants__container">
             <div className="Participants__buttons">
               <Link to="/participantes/new" className="btn btn-primary">
-                Registrar
+                Guardar
               </Link>
             </div>
 
             <ParticipantsList participants={this.state.data} /> 
-          </div>
+          </div> */}
         </Fragment>
       );
   }

@@ -1,16 +1,7 @@
-// import React from 'react'
-
-// import useFetch from './hooks/useFetch'
 const BASE_URL = 'https://platzi-badges.herokuapp.com';
 
 async function callApi(endpoint, options = {}) {
-  // await simulateNetworkLatency();
-
-  // options.headers = {
-  //   'Content-Type': 'application/json',
-  //   Accept: 'application/json',
-  // };
-
+  
   options.headers = {
     'Content-Type': 'application/json',
     Accept: 'application/json',

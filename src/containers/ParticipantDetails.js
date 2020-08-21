@@ -1,10 +1,8 @@
 import React, { Fragment } from 'react';
-import ReactDOM from 'react-dom'
 import $ from 'jquery';
 import { Link } from 'react-router-dom';
 
 import '../assets/styles/containers/ParticipantDetails.scss';
-import confLogo from '../assets/images/logoGral.jpg';
 import Loader from '../components/Loader';
 import Error from '../containers/Error';
 import Participant from '../components/Participant';

@@ -30,7 +30,6 @@ const ParticipantEdit = (props) => {
         const data = await api.participants.read(props.match.params.participanteId)
         
         setLoading(false)
-        // setformData(data)
         setformData({
           ...formData,
           name : data.name,
@@ -92,11 +91,6 @@ const ParticipantEdit = (props) => {
           <div className='col-md mb-5'>
             <Participant
               formData={formData}
-              // firstName = {formData.firstName}
-              // lastName = {formData.lastName}
-              // email = {formData.email}
-              // jobTitle = {formData.jobTitle}
-              // gravatar = {formData.gravatar}
             />
           </div>
         </div>

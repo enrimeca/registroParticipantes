@@ -2,8 +2,7 @@ import React from 'react'
 import '../assets/styles/components/Loader.scss';
 
 function Loader() {
-  return (
-    
+  return (    
     <div className="section">
       <div className="loader">Loading...</div> 
     </div>
