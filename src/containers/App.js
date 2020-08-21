@@ -10,6 +10,7 @@ import Home from '../containers/Home'
 import Participants from '../containers/Participants'
 import ParticipantNew from '../containers/ParticipantNew'
 import ParticipantEdit from '../containers/ParticipantEdit'
+import ParticipantDetails from '../containers/ParticipantDetails'
 import NotFound from '../containers/NotFound'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/" component = { Home } />
           <Route exact path="/participantes" component = { Participants } />
           <Route exact path="/participantes/new" component = { ParticipantNew } /> 
+          <Route exact path="/participantes/:participanteId" component = { ParticipantDetails } /> 
           <Route exact path="/participantes/:participanteId/edit" component = { ParticipantEdit } /> 
           <Route component = {NotFound} />
         </Switch>

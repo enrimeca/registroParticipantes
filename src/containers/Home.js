@@ -10,7 +10,7 @@ function Home() {
               <div className="row">
                 <div className="col-md-12 mb-4 white-text text-center">
                   <h1>Piura Clases</h1>
-                  <h2>Registro de Asistencia</h2>        
+                  <h3>Registro de Asistencia</h3>        
                   <Link className="btn btn-primary" to="/participantes/new">Empecemos</Link>
                 </div>
               </div>

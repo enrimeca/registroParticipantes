@@ -45,7 +45,7 @@ class ParticipantsList extends Component {
           {this.props.participants.map(participant => {
             return (              
               <li key={participant._id}>
-                <Link className='text-reset text-decoration-none' to={`/participantes/${participant._id}/edit`}>
+                <Link className='text-reset text-decoration-none' to={`/participantes/${participant._id}`}>
                   <ParticipantsListItem participant={participant} />
                 </Link>
               </li>
