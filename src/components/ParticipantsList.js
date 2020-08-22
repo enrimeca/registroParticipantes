@@ -19,6 +19,8 @@ class ParticipantsListItem extends Component {
           <br />{this.props.participant.email}
           <br />
           {this.props.participant.job}
+          <br />
+          <span class="badge badge-info">Editar</span>
         </div>
       </div>
     );
